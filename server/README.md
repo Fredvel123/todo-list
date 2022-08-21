@@ -2,5 +2,5 @@
 
 ## Data Base Diagram
 
-<img src="./db.diagram.png" />
+<img src="db.diagram.png" ></img>
 
