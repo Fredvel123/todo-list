@@ -28,6 +28,12 @@ const usersModel = db_connection_1.default.define('users', {
     },
     email_confirmed: {
         type: sequelize_1.DataTypes.BOOLEAN
+    },
+    avatar: {
+        type: sequelize_1.DataTypes.TEXT,
+    },
+    cloud_id: {
+        type: sequelize_1.DataTypes.TEXT
     }
 }, {
     timestamps: false

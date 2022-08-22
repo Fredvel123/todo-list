@@ -16,7 +16,7 @@ app.set('port', process.env.PORT || 8000);
 app.get('/', (req, res) => {
     res.json({
         message: "server is running successfully",
-        documentation: "https://github.com/Fredvel123/todo-list/tree/master/server",
+        documentation: "https://github.com/Fredvel123/todo-list/tree/master/server/#readme",
     });
 });
 // routers - users

@@ -5,4 +5,4 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
 const port = app_1.default.get('port');
-app_1.default.listen(port, () => console.log(`Server is listening on port: ${port}`));
+app_1.default.listen(port, () => console.log(`Server is listening on port: ${port}, CTRL + C to down the server`));
