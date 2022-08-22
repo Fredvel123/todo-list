@@ -1,7 +1,7 @@
-import express, { Request, Response } from "express";
-import morgan from 'morgan'
+import express, { Request, Response, Application } from "express";
+import morgan from 'morgan';
 import 'dotenv/config';
-const app = express();
+const app: Application = express();
 
 // middlewares
 app.use(express.json());
@@ -18,5 +18,11 @@ app.get('/', (req: Request, res: Response) => { // main route
     documentation: "https://github.com/Fredvel123/todo-list/tree/master/server",
   })
 })
+// routers - users
+import usersRouter from './code/users/routers/users.router'
+
+app.use('/api/users', usersRouter)
+
+
 
 export default app;
