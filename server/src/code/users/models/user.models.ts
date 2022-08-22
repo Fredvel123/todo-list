@@ -24,7 +24,14 @@ const usersModel = sequelize.define('users', {
   }, 
   email_confirmed: {
     type: DataTypes.BOOLEAN
+  },
+  avatar: {
+    type: DataTypes.TEXT,
+  },
+  cloud_id: {
+    type: DataTypes.TEXT
   }
+
 }, {
   timestamps: false
 }) 

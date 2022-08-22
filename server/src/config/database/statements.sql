@@ -8,3 +8,5 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 ALTER TABLE users ADD email_confirmed BOOLEAN DEFAULT false; 
+ALTER TABLE users ADD avatar TEXT; 
+ALTER TABLE users ADD cloud_id TEXT;
