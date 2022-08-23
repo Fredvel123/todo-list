@@ -1,9 +1,20 @@
 ## Start project:
+
 To Run the project just clone the project
-``` shell
+
+```shell
 git clone https://github.com/Fredvel123/todo-list
 ```
-- ReactJs 
+
+If you want to install the whole project you can execute the install.sh file
+
+```shell
+./install.sh
+```
+
+But If it doesen't work you can install the project manually.
+
+- ReactJs
 - ExpressJs/typescript
 - Database/postgresql
 
@@ -13,4 +24,3 @@ git clone https://github.com/Fredvel123/todo-list
 - Server Backend was deployed in Heroku https://heroku.com/
 - Database was deployed in Clever Cloud platform https://heroku.com/
 - Images was uploaded to CLoudinary cloud https://cloudinary.com/
-
