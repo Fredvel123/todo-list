@@ -1,4 +1,4 @@
-# Todo List Backend - Typescript
+# Todo List Backend Express/Typescript
 
 ## Data Base Diagram
 
@@ -26,3 +26,13 @@ TASKS:
 - url/api/tasks/user
 - url/api/tasks/edit
 - url/api/tasks/remove
+
+## Dependences and Libraries
+
+- Express - **Main Library**
+- Dotenv
+- JWT
+- Bcryptjs
+- sequelize
+- morgan
+- cloudinary
