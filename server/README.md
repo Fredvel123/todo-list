@@ -2,7 +2,7 @@
 
 ## Data Base Diagram
 
-<img src="db.diagram.png" ></img>
+<img src="./src/assets/db.diagram.png" ></img>
 
 ## REST API
 

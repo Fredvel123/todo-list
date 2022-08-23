@@ -23,7 +23,6 @@ export default async function emailer(
     from: email_server,
     to: email_user,
     subject,
-    // text: message,
     html,
   };
 
@@ -36,11 +35,3 @@ export default async function emailer(
     return Promise.resolve(false);
   }
 }
-
-// console.log(
-//   emailer(
-//     "freddyvelarde085@gmail.com",
-//     "test",
-//     "<h2>hello world</h2> <a href='www.google.com' target='__blank' >click here</a> "
-//   )
-// );
