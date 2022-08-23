@@ -36,3 +36,4 @@ TASKS:
 - sequelize
 - morgan
 - cloudinary
+- Multer
