@@ -11,7 +11,6 @@ import emailer from "../../../services/emailer";
 import nameValidator from "../helpers/name.validate";
 
 // Sign In
-// once user was created - give a token
 export const createNewUser = async (req: Request, res: Response) => {
   const { password, email, full_name } = req.body;
   const userExists = await Users.findOne({ where: { email } });
@@ -44,7 +43,8 @@ export const createNewUser = async (req: Request, res: Response) => {
     return;
   }
   const passwordHashed = await bcrypt.hash(password, 10);
-  const html = `<h2>Welcome ${full_name} </h2> <p>hope you enjoy the app and use when you need it</p> <br /><h3>In case you never has visit our app, please ignore this email and do not click the link</h3><p>To confirm your email just</p><a href="www.google.com" target="__blank">click here</a>`;
+  const email_code = randomString(12);
+  const html = `<h2>Welcome ${full_name} </h2> <p>hope you enjoy the app and use when you need it</p> <br /><h3>In case you never has visit our app, please ignore this email and do not click the link</h3><p>To confirm your email just</p><a href="http://192.168.0.8:8000/api/auth/${email_code}" target="__blank">click here</a>`;
   const emailSent = await emailer(email, "Welcome to TodoApp", html);
   if (!emailSent) {
     res.json({
@@ -61,7 +61,7 @@ export const createNewUser = async (req: Request, res: Response) => {
         full_name,
         email,
         password: passwordHashed,
-        email_key: randomString(12),
+        email_key: email_code,
         create_at: new Date(),
         avatar: "",
         cloud_id: "",
@@ -83,7 +83,7 @@ export const createNewUser = async (req: Request, res: Response) => {
       full_name,
       email,
       password: passwordHashed,
-      email_key: randomString(12),
+      email_key: email_code,
       create_at: new Date(),
       avatar: image.img_url,
       cloud_id: image.img_id,
@@ -91,10 +91,27 @@ export const createNewUser = async (req: Request, res: Response) => {
     res.json({
       statusCode: 200,
       isCreated: true,
-      message: "User was created successfully",
+      message:
+        "User was created successfully, we sent an email to your email, please go and check it out",
     });
   } catch (err) {
     res.send(err);
   }
   req.file ? await fs.remove(req.file.path) : null;
+};
+
+export const registerUsers = async (req: Request, res: Response) => {
+  console.log("this shit is working");
+};
+
+export const confirEmail = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const emailConfirmed: any = await Users.findOne({ where: { email_key: id } });
+  if (!emailConfirmed) {
+    res.send("<h2>Your key is not correct</h2>");
+    return;
+  }
+  emailConfirmed.email_confirmed = true;
+  await emailConfirmed.save();
+  res.send(emailConfirmed);
 };
