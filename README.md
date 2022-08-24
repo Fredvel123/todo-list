@@ -14,6 +14,8 @@ If you want to install the whole project you can execute the install.sh file
 
 But If it doesen't work you can install the project manually.
 
+## Technologies
+
 - ReactJs
 - ExpressJs/typescript
 - Database/postgresql
