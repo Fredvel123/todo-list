@@ -24,6 +24,18 @@ body: {
 ```
 
 - url/api/auth/signin
+
+```js
+headers: {
+  "Method": "POST",
+  "Content-Type": "application/json"
+}
+body: {
+  email: "user email",
+  password: "user password"
+}
+```
+
 - url/api/auth/email/[email_key]
 - url/api/auth/change
 - url/api/auth/changepassword
