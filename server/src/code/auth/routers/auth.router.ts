@@ -8,7 +8,7 @@ import upload from "../../../middlewares/multer";
 const router = Router();
 
 router.post("/signup", upload.single("avatar"), createNewUser);
-router.get("/signin", registerUsers);
+router.post("/signin", registerUsers);
 router.get("/:id", confirEmail);
 
 export default router;

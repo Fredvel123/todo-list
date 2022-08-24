@@ -9,8 +9,9 @@ import passwordValidate from "../helpers/passwd.validate";
 import uploadImages from "../../../services/upload.image";
 import emailer from "../../../services/emailer";
 import nameValidator from "../helpers/name.validate";
+import jwtGiveToken from "../../../services/jwt";
 
-// Sign In
+// Sign Up
 export const createNewUser = async (req: Request, res: Response) => {
   const { password, email, full_name } = req.body;
   const userExists = await Users.findOne({ where: { email } });
@@ -100,8 +101,34 @@ export const createNewUser = async (req: Request, res: Response) => {
   req.file ? await fs.remove(req.file.path) : null;
 };
 
+// Sign In
 export const registerUsers = async (req: Request, res: Response) => {
-  console.log("this shit is working");
+  const { password, email } = req.body;
+  const user: any = await Users.findOne({ where: { email } });
+  if (!user) {
+    res.json({
+      auth: false,
+      message: `Your email: ${email}, doesn't exists`,
+    });
+    return;
+  }
+  const emailValidated = emailvalidate(email);
+  if (!emailValidated.response) {
+    res.json({ auth: false, message: emailValidated.message });
+    return;
+  }
+  const passwordValidated = passwordValidate(password);
+  if (!passwordValidated.response) {
+    res.json({ auth: false, message: passwordValidated.message });
+    return;
+  }
+
+  const passwordMatch = await bcrypt.compare(password, user.password);
+  if (!passwordMatch) {
+    res.json({ auth: false, message: "Your password is not correct" });
+    return;
+  }
+  res.json({ auth: true, token: jwtGiveToken(user.id_user) });
 };
 
 export const confirEmail = async (req: Request, res: Response) => {
