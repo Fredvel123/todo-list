@@ -9,6 +9,20 @@
 AUTHENTICATION:
 
 - url/api/auth/signup
+
+```js
+headers: {
+  "Method": "POST",
+  "Content-type": "multipart/form-data"
+}
+body: {
+  full_name: "user name",
+  email: "user email",
+  password: "user password"
+  avatar: // user avaatar image
+}
+```
+
 - url/api/auth/signin
 - url/api/auth/email/[email_key]
 - url/api/auth/change
