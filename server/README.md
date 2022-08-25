@@ -36,9 +36,8 @@ body: {
 }
 ```
 
-- url/api/auth/email/[email_key]
-- url/api/auth/change
-- url/api/auth/changepassword
+- url/api/auth/lostpsswd/[email_user] GET
+<!-- - url/api/auth/email/:id GET -->
 
 USERS:
 
