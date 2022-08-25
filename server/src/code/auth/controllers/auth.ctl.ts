@@ -45,7 +45,7 @@ export const createNewUser = async (req: Request, res: Response) => {
   }
   const passwordHashed = await bcrypt.hash(password, 10);
   const email_code = randomString(12);
-  const html = `<h2>Welcome ${full_name} </h2> <p>hope you enjoy the app and use when you need it</p> <br /><h3>In case you never has visit our app, please ignore this email and do not click the link</h3><p>To confirm your email just</p><a href="http://192.168.0.8:8000/api/auth/${email_code}" target="__blank">click here</a>`;
+  const html = `<h2>Welcome ${full_name} </h2> <p>hope you enjoy the app and use when you need it</p> <br /><h3>In case you never has visit our app, please ignore this email and do not click the link</h3><p>To confirm your email just</p><a href="http://192.168.0.8:8000/api/auth/email/${email_code}" target="__blank">click here</a>`;
   const emailSent = await emailer(email, "Welcome to TodoApp", html);
   if (!emailSent) {
     res.json({
@@ -131,6 +131,7 @@ export const registerUsers = async (req: Request, res: Response) => {
   res.json({ auth: true, token: jwtGiveToken(user.id_user) });
 };
 
+// confirm email
 export const confirEmail = async (req: Request, res: Response) => {
   const { id } = req.params;
   const emailConfirmed: any = await Users.findOne({ where: { email_key: id } });
@@ -141,4 +142,36 @@ export const confirEmail = async (req: Request, res: Response) => {
   emailConfirmed.email_confirmed = true;
   await emailConfirmed.save();
   res.send(emailConfirmed);
+};
+
+// lost password
+export const lostPassword = async (req: Request, res: Response) => {
+  const { email } = req.params;
+  const user: any = await Users.findOne({ where: { email } });
+
+  if (!user) {
+    res.json({
+      message: "Your email is not valid, please enter a valid password",
+    });
+    return;
+  }
+  const newRandomPassword = randomString(12);
+  const html = `<h1>Hi ${user.full_name}, welcome back</h1>
+    <p>This is your new password: ${newRandomPassword}</p>
+    <p>First of all Sign In TodoApp again</p>
+    <p>Then with this password you can change your password</p>
+    <a href="https://www.google.com" target="__black">Sign In</a>`;
+
+  const emailSent = await emailer(email, "New password", html);
+  if (!emailSent) {
+    res.json({ message: "Something was wrong sending email" });
+    return;
+  }
+  const passwordHashed = await bcrypt.hash(newRandomPassword, 10);
+
+  user.password = passwordHashed;
+  await user.save();
+  res.json({
+    message: `${user.full_name}, we sent you a email with your new password, please check it out`,
+  });
 };
