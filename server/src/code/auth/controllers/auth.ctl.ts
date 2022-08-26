@@ -175,3 +175,8 @@ export const lostPassword = async (req: Request, res: Response) => {
     message: `${user.full_name}, we sent you a email with your new password, please check it out`,
   });
 };
+
+// edit password
+export const editPassword = async (req: Request, res: Response) => {
+  res.send("hello world");
+};
