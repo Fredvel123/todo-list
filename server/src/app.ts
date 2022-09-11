@@ -26,4 +26,8 @@ app.use("/api/users", usersRouter);
 import authRouter from "./code/auth/routers/auth.router";
 app.use("/api/auth", authRouter);
 
+// router  - tasks
+import tasksRouter from "./code/tasks/routers/tasks.routers";
+app.use("/api/tasks", tasksRouter);
+
 export default app;
