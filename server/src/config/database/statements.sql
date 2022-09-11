@@ -10,3 +10,12 @@ CREATE TABLE IF NOT EXISTS users (
 ALTER TABLE users ADD email_confirmed BOOLEAN DEFAULT false; 
 ALTER TABLE users ADD avatar TEXT; 
 ALTER TABLE users ADD cloud_id TEXT;
+
+CREATE TABLE IF NOT EXISTS tasks (
+  id_task SERIAL PRIMARY KEY,
+  title VARCHAR (200),
+  description TEXT,
+  status BOOLEAN DEFAULT false,
+  create_at TIMESTAMP,
+  finished_at TIMESTAMP
+);
