@@ -57,7 +57,14 @@ body: {
 }
 ```
 
-- url/api/users/[id_user]
+- url/api/users/ GET
+
+```js
+headers: {
+  "access-token": "token string",
+  "Method": "GET",
+}
+```
 
 TASKS:
 

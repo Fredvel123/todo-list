@@ -15,6 +15,20 @@ export const getAllUsers = async (req: Request, res: Response) => {
   }
 };
 
+export const getUserById = async (req: any, res: Response) => {
+  try {
+    const user = await Users.findOne({
+      where: { id_user: req.id },
+      attributes: {
+        exclude: ["password", "email_confirmed", "email_key", "cloud_id"],
+      },
+    });
+    res.json(user);
+  } catch (err) {
+    res.json(err);
+  }
+};
+
 // interface UserInterface {
 //   id_user: number;
 //   full_name: string;
