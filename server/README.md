@@ -57,7 +57,7 @@ body: {
 }
 ```
 
-- url/api/users/ GET
+- url/api/users/user GET
 
 ```js
 headers: {
