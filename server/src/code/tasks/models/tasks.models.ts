@@ -21,6 +21,9 @@ const tasksModels = sequelize.define(
     create_at: {
       type: DataTypes.DATE,
     },
+    author: {
+      type: DataTypes.INTEGER,
+    },
     finished_at: {
       type: DataTypes.DATE,
     },

@@ -19,3 +19,4 @@ CREATE TABLE IF NOT EXISTS tasks (
   create_at TIMESTAMP,
   finished_at TIMESTAMP
 );
+ALTER TABLE tasks ADD author INT;
