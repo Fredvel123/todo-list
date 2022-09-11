@@ -1,7 +1,9 @@
 import { Router } from "express";
-import { getAllUsers } from "../controllers/users.ctl";
+import verifyToken from "../../../middlewares/verifyToken";
+import { editPassword, getAllUsers } from "../controllers/users.ctl";
 const router = Router();
 
 router.get("/all", getAllUsers);
+router.post("/editpasswd", verifyToken, editPassword);
 
 export default router;

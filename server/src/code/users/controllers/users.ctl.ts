@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import Users from "../models/user.models";
+import bcrypt from "bcryptjs";
 
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
@@ -12,4 +13,40 @@ export const getAllUsers = async (req: Request, res: Response) => {
   } catch (err) {
     console.log(err);
   }
+};
+
+// interface UserInterface {
+//   id_user: number;
+//   full_name: string;
+//   email: string;
+//   password: string;
+//   email_confirmed: boolean;
+//   avatar: string;
+//   cloud_id: string;
+//   email_key: string;
+//   create_at: string;
+// }
+
+// edit password
+export const editPassword = async (req: any, res: Response) => {
+  const { password, new_password, repeate_new_password } = req.body;
+  const user: any = await Users.findOne({
+    where: { id_user: req.id },
+  });
+  const passwordMatched = await bcrypt.compare(password, user.password);
+  if (!passwordMatched) {
+    res.json({ message: "your password is not correct" });
+    return;
+  }
+  if (new_password !== repeate_new_password) {
+    res.json({
+      message:
+        "your new password is not correct, please make sure you're adding the same password",
+    });
+    return;
+  }
+  const passwdHashed = await bcrypt.hash(new_password, 10);
+  user.password = passwdHashed;
+  await user?.save();
+  res.json({ message: "Your password was updated successfully" });
 };

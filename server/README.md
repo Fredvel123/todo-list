@@ -42,6 +42,21 @@ body: {
 USERS:
 
 - url/api/users/all
+- url/api/users/editpasswd POST
+
+```js
+headers: {
+  "access-token": "token string",
+  "Method": "POST",
+  "Content-Type": "application/json"
+}
+body: {
+  password: "user password"
+  new_password: "new password"
+  repeate_new_password: "repeate new password"
+}
+```
+
 - url/api/users/[id_user]
 
 TASKS:
