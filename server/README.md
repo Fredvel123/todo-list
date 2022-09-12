@@ -95,6 +95,20 @@ headers: {
 ```
 
 - url/api/tasks/edit
+
+```js
+headers: {
+  "Content-type": "application/json",
+  "access-token: "your token",
+  "METHOD": "PATCH"
+},
+body: {
+  title: "title task",
+  description: "description task",
+  state: true | false // done task
+}
+```
+
 - url/api/tasks/remove
 
 ## Dependences and Libraries
