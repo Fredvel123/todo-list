@@ -2,16 +2,13 @@ import styled from "styled-components";
 
 export const DashboardStyles = styled.div`
   /* background: black; */
-  display: flex;
-  height: 1000vh;
-  .menu {
-    background: red;
+  display: grid;
+  grid-template-columns: 5% 95%;
+  height: 100vh;
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 8% 92%;
   }
-  .board {
-    .head {
-      margin-bottom: 10vh;
-    }
-    width: auto;
-    background: green;
+  @media screen and (max-width: 700px) {
+    grid-template-columns: 10% 90%;
   }
 `;
