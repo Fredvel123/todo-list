@@ -1,4 +1,0 @@
-BACKEND:
-
-Get Info By User
-Edit Password
