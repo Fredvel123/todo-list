@@ -69,7 +69,21 @@ headers: {
 TASKS:
 
 - url/api/tasks/all
-- url/api/tasks/add
+- url/api/tasks/create
+
+```js
+headers: {
+  "Content-type": "application/json",
+  "access-token: "your token",
+  "METHOD": "POST"
+},
+body: {
+  title: "title task",
+  description: "description task",
+  date: "valid date to finish task"
+}
+```
+
 - url/api/tasks/user
 - url/api/tasks/edit
 - url/api/tasks/remove
