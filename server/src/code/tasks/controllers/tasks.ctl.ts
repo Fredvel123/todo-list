@@ -30,3 +30,12 @@ export const createNewTask = async (req: Request | any, res: Response) => {
     res.send(err);
   }
 };
+
+export const getTasksByUser = async (req: Request | any, res: Response) => {
+  try {
+    const tasks = await Tasks.findAll({ where: { author: req.id } });
+    res.json(tasks);
+  } catch (err) {
+    res.send(err);
+  }
+};

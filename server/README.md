@@ -85,6 +85,15 @@ body: {
 ```
 
 - url/api/tasks/user
+
+```js
+headers: {
+  "Content-type": "application/json",
+  "access-token: "your token",
+  "METHOD": "GET"
+}
+```
+
 - url/api/tasks/edit
 - url/api/tasks/remove
 
