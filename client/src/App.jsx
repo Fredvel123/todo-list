@@ -1,9 +1,31 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+// pages
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Main from "./pages/Main/Main";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+// react touter
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import { setTheme } from "./redux/slices/theme";
 
 function App() {
+  const theme = useSelector((state) => state.theme.value);
+  const dispatch = useDispatch();
+
+  // storing theme in local storage
+  useEffect(() => {
+    const data = localStorage.getItem("theme");
+    if (data !== null) {
+      dispatch(setTheme(JSON.parse(data)));
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(theme));
+  }, [theme]);
+
   return (
     <BrowserRouter>
       <Routes>

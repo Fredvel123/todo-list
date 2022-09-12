@@ -9,8 +9,9 @@ import "./global-styles/main.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    {/* localstorage doesn't work for that reason, DO NOT include React.StrictMode in localstorage + router  */}
+    {/* <React.StrictMode> */}
+    <App />
+    {/* </React.StrictMode> */}
   </Provider>
 );
