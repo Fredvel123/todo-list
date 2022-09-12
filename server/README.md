@@ -94,7 +94,7 @@ headers: {
 }
 ```
 
-- url/api/tasks/edit
+- url/api/tasks/edit/id_task
 
 ```js
 headers: {
@@ -109,7 +109,15 @@ body: {
 }
 ```
 
-- url/api/tasks/remove
+- url/api/tasks/remove/id_task
+
+```js
+headers: {
+  // "Content-type": "application/json",
+  // "access-token: "your token",
+  "METHOD": "DELETE"
+}
+```
 
 ## Dependences and Libraries
 

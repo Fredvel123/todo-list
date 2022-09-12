@@ -53,3 +53,13 @@ export const editTaskByTaskId = async (req: Request | any, res: Response) => {
     res.send(err);
   }
 };
+
+export const removeTaskById = async (req: Request | any, res: Response) => {
+  try {
+    const { id_task } = req.params;
+    await Tasks.destroy({ where: { id_task } });
+    res.json({ message: "tasks was removed" });
+  } catch (err) {
+    res.send(err);
+  }
+};
