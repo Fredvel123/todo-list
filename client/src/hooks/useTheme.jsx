@@ -10,5 +10,5 @@ export default function useTheme() {
     dispatch(setTheme(!theme));
   };
 
-  return { colors: theme ? lightTheme : darkTheme, changeTheme };
+  return { colors: theme ? lightTheme : darkTheme, changeTheme, theme };
 }
