@@ -1,13 +1,15 @@
 import { useEffect } from "react";
-// pages
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Main from "./pages/Main/Main";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 // react touter
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "./redux/slices/theme";
+// pages
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Main from "./pages/Main/Main";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import Auth from "./pages/Auth/Auth";
+import SignUp from "./pages/Auth/SignUp/SignUp";
 
 function App() {
   const theme = useSelector((state) => state.theme.value);
@@ -39,11 +41,11 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
 
-        {/* Sign In */}
-        <Route path="/signin" element={<h2>Sign In</h2>} />
-
-        {/* Sign Up */}
-        <Route path="/signup" element={<h2>Sign Up</h2>} />
+        {/* Sign Up - Sign Up */}
+        <Route path="/auth" element={<Auth />}>
+          <Route path="signup" element={<SignUp />} />
+          <Route path="signin" element={<p>signin mutherfucker</p>} />
+        </Route>
 
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>

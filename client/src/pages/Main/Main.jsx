@@ -11,10 +11,10 @@ export default function Main() {
           <h2>Todo</h2>
         </div>
         <div className="buttons">
-          <Link to="/signin" className="button">
+          <Link to="/auth/signin" className="button">
             Sign In
           </Link>
-          <Link to="/signup" className="button">
+          <Link to="/auth/signup" className="button">
             Sign Up
           </Link>
         </div>
@@ -27,10 +27,10 @@ export default function Main() {
           if you already have a account please log in
         </p>
         <div className="btns">
-          <Link to="/signin" className="button">
+          <Link to="/auth/signin" className="button">
             Sign In
           </Link>
-          <Link to="/signup" className="button">
+          <Link to="/auth/signup" className="button">
             Sign Up
           </Link>
         </div>

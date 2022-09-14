@@ -8,6 +8,8 @@ Home link: https://cdn.dribbble.com/userupload/2582607/file/original-d4da4efaec8
 
 Mobile Design: https://dribbble.com/shots/14153121-ToDo-App-Dark-Theme
 
+SignUp: https://dribbble.com/shots/2878911-Task-Manager-Concept-Sign-Up/attachments/594723?mode=media
+
 # Packages libraries used
 
 - styled-components
