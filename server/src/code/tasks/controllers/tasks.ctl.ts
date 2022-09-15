@@ -17,6 +17,7 @@ export const getAllTasks = async (req: Request, res: Response) => {
 export const createNewTask = async (req: Request | any, res: Response) => {
   const { title, description, date } = req.body;
   const id = req.id;
+
   try {
     const taskCreated = await Tasks.create({
       title,

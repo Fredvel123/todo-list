@@ -1,11 +1,19 @@
 import express, { Request, Response, Application } from "express";
 import morgan from "morgan";
+import cors from "cors";
 import "dotenv/config";
 const app: Application = express();
 
 // middlewares
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(
+  cors({
+    origin: "http://192.168.0.8:3000",
+    optionsSuccessStatus: 200,
+  })
+  // cors()
+);
 
 // settings
 app.set("port", process.env.PORT || 8000);
