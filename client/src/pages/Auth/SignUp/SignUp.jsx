@@ -1,12 +1,14 @@
 import { useState } from "react";
-import Input from "../../../components/Input/Input";
-import useTheme from "../../../hooks/useTheme";
-import { SignUpStyles } from "./SignUpStyles";
-import { regExp } from "../../../config/reg.exp";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import { signup } from "../../../config/endpoints";
+// components
 import SpinnerLoading from "../../../components/SpinnerLoading/SpinnerLoading";
+import Input from "../../../components/Input/Input";
+// icons
+import { SignUpStyles } from "./SignUpStyles";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
+// hooks
+import useTheme from "../../../hooks/useTheme";
 import useSignUp from "../../../hooks/useSignUp";
+import { regExp } from "../../../config/reg.exp";
 
 export default function SignUp() {
   const { colors, fonts } = useTheme();
