@@ -24,8 +24,9 @@ export const SideBarStyles = styled.div`
     align-items: center;
     justify-content: space-evenly;
   }
-  .button {
+  .menu__cart {
     span {
+      transition: 0s;
       font-size: 10px;
       display: none;
       position: absolute;
@@ -40,15 +41,18 @@ export const SideBarStyles = styled.div`
       }
     }
   }
-  .menu-icon {
+  .menu__icon {
     cursor: pointer;
     width: 30px;
     color: ${({ color }) => color.sidebar};
   }
-  .logout {
+  .menu__logout {
     width: 35%;
-    border-radius: 10px;
-    /* background: ${({ color }) => color.secondary}; */
+    /* background: ${({ color }) => color.button}; */
+    background: #6de0cc;
+    border-radius: 5px;
+    color: black;
+    /* filter: blur(0.5px); */
   }
 
   @media screen and (max-width: 575px) {

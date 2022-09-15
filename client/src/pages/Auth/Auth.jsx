@@ -26,7 +26,12 @@ export default function Auth() {
   return (
     <AuthStyles color={colors} font={fonts} state={sign}>
       <div className="banner">
-        <img className="logo" onClick={() => navigate("/")} src={logo} alt="" />
+        <img
+          className="banner__logo"
+          onClick={() => navigate("/")}
+          src={logo}
+          alt="logo"
+        />
         <img src={image} alt="" width={250} />
       </div>
       <div className="sign">

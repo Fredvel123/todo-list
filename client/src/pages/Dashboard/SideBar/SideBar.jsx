@@ -1,7 +1,6 @@
 import { SideBarStyles } from "./SideBarStyles";
 // colors
 import useTheme from "../../../hooks/useTheme";
-import logo from "../../../assets/logo.png";
 import {
   Cog6ToothIcon,
   ArrowLeftOnRectangleIcon,
@@ -14,6 +13,7 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../../components/Logo/Logo";
 
 export default function SideBar() {
   const { colors, theme, changeTheme } = useTheme();
@@ -22,42 +22,42 @@ export default function SideBar() {
   return (
     <SideBarStyles color={colors}>
       <div className="header">
-        <img src={logo} alt="" />
+        <Logo />
       </div>
       <div className="menu">
         <PencilSquareIcon
           onClick={() => navidate("tasks")}
-          className="menu-icon"
+          className="menu__icon"
         />
-        <div className="button">
-          <ClipboardIcon className="menu-icon" />
+        <div className="menu__cart">
+          <ClipboardIcon className="menu__icon" />
           <span>Active Tasks</span>
         </div>
 
-        <div className="button">
-          <ClipboardDocumentListIcon className="menu-icon" />
+        <div className="menu__cart">
+          <ClipboardDocumentListIcon className="menu__icon" />
           <span>All Tasks</span>
         </div>
 
-        <div className="button">
-          <ClipboardDocumentCheckIcon className="menu-icon" />
-          <span>Tasks done</span>
+        <div className="menu__cart">
+          <ClipboardDocumentCheckIcon className="menu__icon" />
+          <span>Done tasks</span>
         </div>
 
         {!theme ? (
-          <SunIcon onClick={changeTheme} className="menu-icon" />
+          <SunIcon onClick={changeTheme} className="menu__icon" />
         ) : (
-          <MoonIcon onClick={changeTheme} className="menu-icon" />
+          <MoonIcon onClick={changeTheme} className="menu__icon" />
         )}
 
-        <Cog6ToothIcon className="menu-icon" />
+        <Cog6ToothIcon className="menu__icon" />
 
         {false ? (
           <img src="" alt="image" />
         ) : (
-          <UserCircleIcon className="menu-icon" />
+          <UserCircleIcon className="menu__icon" />
         )}
-        <ArrowLeftOnRectangleIcon className="menu-icon logout" />
+        <ArrowLeftOnRectangleIcon className="menu__icon menu__logout" />
       </div>
     </SideBarStyles>
   );

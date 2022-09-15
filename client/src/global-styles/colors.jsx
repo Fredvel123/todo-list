@@ -15,9 +15,9 @@ export const lightTheme = {
   sidebar: "#fff",
   primary: "#ffffff",
   secondary: "#f4f6f7",
-  third: "#6F6AF8",
+  third: "#4558BE",
   success: "#4AC9C9",
-  button: "#4558BE",
+  button: "#6F6AF8",
   titles: "#000000",
   gray: "#515B64",
 };
