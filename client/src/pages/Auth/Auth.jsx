@@ -1,46 +1,40 @@
-import { useState } from "react";
 import useTheme from "../../hooks/useTheme";
 // images
 import image from "../../assets/sign.svg";
-import logo from "../../assets/logo.png";
 // styles
 import { AuthStyles } from "./AuthStyles";
 // router
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+// components
+import Logo from "../../components/Logo/Logo";
 
 export default function Auth() {
   const { colors, fonts } = useTheme();
   const navigate = useNavigate();
-  const [sign, setSign] = useState(null);
 
   const toSignUp = () => {
     navigate("signup");
-    setSign(true);
   };
   const toSignIn = () => {
     navigate("signin");
-    setSign(false);
   };
 
   return (
-    <AuthStyles color={colors} font={fonts} state={sign}>
+    <AuthStyles color={colors} font={fonts}>
       <div className="banner">
-        <img
-          className="banner__logo"
-          onClick={() => navigate("/")}
-          src={logo}
-          alt="logo"
-        />
-        <img src={image} alt="" width={250} />
+        <div className="banner__logo">
+          <Logo />
+        </div>
+        <img className="banner__img" src={image} alt="" width={250} />
       </div>
-      <div className="sign">
-        <div className="header">
-          <h2 className="click true" onClick={toSignUp}>
+      <div className="form">
+        <div className="form__header">
+          <h2 className="form__navigator " onClick={toSignUp}>
             Sign Up
           </h2>
-          <p className="or">or</p>
-          <h2 className="click false" onClick={toSignIn}>
+          <p className="form__letter">or</p>
+          <h2 className="form__navigator " onClick={toSignIn}>
             Sign In
           </h2>
         </div>

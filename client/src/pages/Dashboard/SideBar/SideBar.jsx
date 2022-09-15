@@ -52,9 +52,8 @@ export default function SideBar() {
 
         <Cog6ToothIcon className="menu__icon" />
 
-        {false ? (
-          <img src="" alt="image" />
-        ) : (
+        {false ? // <img src="" alt="image" />
+        null : (
           <UserCircleIcon className="menu__icon" />
         )}
         <ArrowLeftOnRectangleIcon className="menu__icon menu__logout" />
