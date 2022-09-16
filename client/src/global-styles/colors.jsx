@@ -14,7 +14,7 @@ export const darkTheme = {
 export const lightTheme = {
   sidebar: "#fff",
   primary: "#ffffff",
-  secondary: "#f4f6f7",
+  secondary: " #e5e7e9 ",
   third: "#4558BE",
   success: "#4AC9C9",
   button: "#6F6AF8",

@@ -14,10 +14,20 @@ import {
 } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../../components/Logo/Logo";
+import useGetUserInfo from "../../../hooks/useGetUserInfo";
+// import { useState } from "react";
+// import LogouCard from "../../../components/LogoutCard/LogouCard";
 
-export default function SideBar() {
+export default function SideBar({ openCard }) {
   const { colors, theme, changeTheme } = useTheme();
   const navidate = useNavigate();
+  const user = useGetUserInfo();
+  // const [cardActive, setCardActive] = useState(false);
+
+  // close log out card
+  // const closeCardLogout = () => {
+  //   setCardActive(false);
+  // };
 
   return (
     <SideBarStyles color={colors}>
@@ -52,11 +62,19 @@ export default function SideBar() {
 
         <Cog6ToothIcon className="menu__icon" />
 
-        {false ? // <img src="" alt="image" />
-        null : (
-          <UserCircleIcon className="menu__icon" />
+        {user ? (
+          <img className="menu__avatar" src={user.avatar} alt="" width={50} />
+        ) : (
+          <UserCircleIcon
+            className="menu__icon"
+            onClick={() => console.log(user)}
+          />
         )}
-        <ArrowLeftOnRectangleIcon className="menu__icon menu__logout" />
+        <ArrowLeftOnRectangleIcon
+          onClick={openCard}
+          className="menu__icon menu__logout"
+        />
+        {/* <LogouCard open={cardActive} callback={closeCardLogout} /> */}
       </div>
     </SideBarStyles>
   );

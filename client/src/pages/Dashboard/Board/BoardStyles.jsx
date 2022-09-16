@@ -4,7 +4,7 @@ export const BoardStyles = styled.div`
   background: ${({ color }) => color.primary};
   color: ${({ color }) => color.titles};
   transition: 0.3s;
-
+  z-index: 100 !important;
   @media screen and (max-width: 575px) {
     position: fixed;
     width: 100%;

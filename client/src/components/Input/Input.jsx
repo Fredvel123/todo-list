@@ -36,6 +36,7 @@ export default function Input({
         onChange={handlerState}
         onKeyUp={validate}
         onBlur={validate}
+        required
       />
     </InputStyles>
   );

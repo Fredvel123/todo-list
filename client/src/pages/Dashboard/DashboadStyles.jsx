@@ -9,6 +9,7 @@ export const DashboardStyles = styled.div`
     grid-template-columns: 8% 92%;
   }
   @media screen and (max-width: 700px) {
+    position: absolute;
     grid-template-columns: 10% 90%;
   }
 `;

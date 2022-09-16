@@ -54,7 +54,13 @@ export const SideBarStyles = styled.div`
     color: black;
     /* filter: blur(0.5px); */
   }
-
+  .menu__avatar {
+    border-radius: 20px;
+    border: 1px solid white;
+    width: 34px;
+    height: 35px;
+    object-fit: cover;
+  }
   @media screen and (max-width: 575px) {
     position: fixed;
     height: 100vh;
