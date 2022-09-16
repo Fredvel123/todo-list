@@ -7,12 +7,15 @@ import { signin } from "../../../config/endpoints";
 // redux
 import { useNavigate } from "react-router-dom";
 import useToken from "../../../hooks/useToken";
+import SpinnerLoading from "../../../components/SpinnerLoading/SpinnerLoading";
 
 export default function SignIn() {
   const { token, setTokenHook } = useToken();
   const { colors, fonts } = useTheme();
   const [email, setEmail] = useState({ value: "" });
   const [password, setPassword] = useState({ value: "" });
+  const [response, setResponse] = useState({ message: "", auth: null });
+  const [loading, setLoading] = useState(null);
 
   const navigate = useNavigate();
 
@@ -24,6 +27,7 @@ export default function SignIn() {
   };
 
   const registerUser = async () => {
+    setLoading(false);
     const post = await fetch(signin, {
       method: "POST",
       headers: {
@@ -36,7 +40,8 @@ export default function SignIn() {
     });
     const response = await post.json();
     setTokenHook(response);
-    console.log(response);
+    setResponse(response);
+    setLoading(null);
   };
 
   useEffect(() => {
@@ -70,6 +75,9 @@ export default function SignIn() {
           <ArrowRightIcon className="form__icon" />
         </button>
       </form>
+
+      {response.message ? <p>{response.message}</p> : null}
+      {loading === false ? <SpinnerLoading /> : null}
     </SignInStyles>
   );
 }

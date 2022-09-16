@@ -8,7 +8,7 @@ export const SideBarStyles = styled.div`
   .header {
     width: 100%;
     height: 15vh;
-    background: ${({ color }) => color.secondary};
+    background: ${({ color }) => color.third};
     display: flex;
     justify-content: center;
     align-items: center;

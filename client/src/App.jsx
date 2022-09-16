@@ -13,6 +13,8 @@ import Auth from "./pages/Auth/Auth";
 import SignUp from "./pages/Auth/SignUp/SignUp";
 import SignIn from "./pages/Auth/SignIn/SignIn";
 import useToken from "./hooks/useToken";
+import AllTasks from "./sections/AllTasks/AllTasks";
+import CreateTasks from "./sections/CreateTasks/CreateTasks";
 
 function App() {
   const theme = useSelector((state) => state.theme.value);
@@ -58,7 +60,8 @@ function App() {
           element={token.auth ? <Dashboard /> : <NotFoundPage />}
         >
           <Route path="menu" element={<h2>menu</h2>} />
-          <Route path="tasks" element={<h2>task</h2>} />
+          <Route path="create" element={<CreateTasks />} />
+          <Route path="all" element={<AllTasks />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
 

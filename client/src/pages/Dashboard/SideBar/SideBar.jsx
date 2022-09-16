@@ -20,7 +20,7 @@ import useGetUserInfo from "../../../hooks/useGetUserInfo";
 
 export default function SideBar({ openCard }) {
   const { colors, theme, changeTheme } = useTheme();
-  const navidate = useNavigate();
+  const navigate = useNavigate();
   const user = useGetUserInfo();
   // const [cardActive, setCardActive] = useState(false);
 
@@ -36,7 +36,7 @@ export default function SideBar({ openCard }) {
       </div>
       <div className="menu">
         <PencilSquareIcon
-          onClick={() => navidate("tasks")}
+          onClick={() => navigate("create")}
           className="menu__icon"
         />
         <div className="menu__cart">
@@ -45,7 +45,10 @@ export default function SideBar({ openCard }) {
         </div>
 
         <div className="menu__cart">
-          <ClipboardDocumentListIcon className="menu__icon" />
+          <ClipboardDocumentListIcon
+            className="menu__icon"
+            onClick={() => navigate("all")}
+          />
           <span>All Tasks</span>
         </div>
 
