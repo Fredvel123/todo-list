@@ -22,7 +22,7 @@ export default function SignIn() {
   const navigateToHome = async () => {
     const res = await token.auth;
     if (res === true) {
-      navigate("/dashboard/tasks", { replace: true });
+      navigate("/dashboard/settings", { replace: true });
     }
   };
 

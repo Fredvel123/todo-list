@@ -4,3 +4,4 @@ export const signup = main + "/api/auth/signup";
 export const signin = main + "/api/auth/signin";
 export const userInfo = main + "/api/users/user";
 export const getAllTasks = main + "/api/tasks/all";
+export const updateAvatar = main + "/api/users/avatar";

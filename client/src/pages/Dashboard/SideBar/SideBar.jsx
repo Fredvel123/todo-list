@@ -15,19 +15,11 @@ import {
 import { useNavigate } from "react-router-dom";
 import Logo from "../../../components/Logo/Logo";
 import useGetUserInfo from "../../../hooks/useGetUserInfo";
-// import { useState } from "react";
-// import LogouCard from "../../../components/LogoutCard/LogouCard";
 
 export default function SideBar({ openCard }) {
   const { colors, theme, changeTheme } = useTheme();
   const navigate = useNavigate();
   const user = useGetUserInfo();
-  // const [cardActive, setCardActive] = useState(false);
-
-  // close log out card
-  // const closeCardLogout = () => {
-  //   setCardActive(false);
-  // };
 
   return (
     <SideBarStyles color={colors}>
@@ -63,15 +55,21 @@ export default function SideBar({ openCard }) {
           <MoonIcon onClick={changeTheme} className="menu__icon" />
         )}
 
-        <Cog6ToothIcon className="menu__icon" />
-
-        {user ? (
-          <img className="menu__avatar" src={user.avatar} alt="" width={50} />
-        ) : (
-          <UserCircleIcon
-            className="menu__icon"
+        <Cog6ToothIcon
+          className="menu__icon"
+          onClick={() => navigate("settings")}
+          // onClick={() => console.log(user)}
+        />
+        {user.data !== null && user.data.avatar ? (
+          <img
+            className="menu__avatar"
+            src={user.data.avatar}
+            alt="LOGO"
+            width={50}
             onClick={() => console.log(user)}
           />
+        ) : (
+          <UserCircleIcon className="menu__icon" />
         )}
         <ArrowLeftOnRectangleIcon
           onClick={openCard}

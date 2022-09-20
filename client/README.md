@@ -10,6 +10,8 @@ Mobile Design: https://dribbble.com/shots/14153121-ToDo-App-Dark-Theme
 
 SignUp: https://dribbble.com/shots/2878911-Task-Manager-Concept-Sign-Up/attachments/594723?mode=media
 
+settings: https://search.muz.li/YjYwOTE0MTQx
+
 # Packages libraries used
 
 - styled-components

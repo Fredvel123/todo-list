@@ -1,24 +1,19 @@
 import { useEffect, useState } from "react";
-import { userInfo } from "../config/endpoints";
-import useToken from "./useToken";
+// import { userInfo } from "../config/endpoints";
+import useToken from "../hooks/useToken";
 
 export default function useGetUserInfo() {
+  const [user, setUser] = useState({ err: null, data: null });
   const { token } = useToken();
-  const [user, setUser] = useState(null);
+
   const getUserInfo = async () => {
-    try {
-      const request = await fetch(userInfo, {
-        method: "GET",
-        headers: {
-          "access-token": token.token,
-        },
-      });
-      const res = await request.json();
-      setUser(res);
-    } catch (err) {
-      setUser("there was something wrong");
+    if (!token.auth) {
+      setUser({ err: true });
+      return;
     }
+    setUser({ err: false, data: token.user });
   };
+
   useEffect(() => {
     getUserInfo();
     // eslint-disable-next-line
