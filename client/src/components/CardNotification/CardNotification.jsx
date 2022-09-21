@@ -1,23 +1,24 @@
 import { CardNotificationStyles } from "./CardNotificationStyles";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import useTheme from "../../hooks/useTheme";
-import useCardNotification from "./useCardNotification";
 
-export default function CardNotification({ title, desc, btn1, btn2 }) {
-  const { colors } = useTheme();
-  const { handlerIcon, open } = useCardNotification();
-
+export default function CardNotification({ desc, btn, state, setState }) {
+  const { colors, fonts } = useTheme();
+  const closeCard = () => {
+    setState({ ...state, status: false });
+    if (state.callback && state.callback !== null) {
+      state.callback();
+    }
+  };
   return (
-    <CardNotificationStyles color={colors} active={open}>
-      <h2>{title}</h2>
-      <p>{desc}</p>
-      {btn1 || btn2 ? (
-        <div className="buttons">
-          <button>{btn1}</button>
-          <button>{btn2}</button>
+    <CardNotificationStyles font={fonts} color={colors} active={state.status}>
+      {state.status ? <p>{state.message}</p> : null}
+      {btn ? (
+        <div className="button">
+          <button onClick={closeCard}>{btn}</button>
         </div>
       ) : null}
-      <XMarkIcon className="close" onClick={handlerIcon} />
+      <XMarkIcon className="close" onClick={closeCard} />
     </CardNotificationStyles>
   );
 }
