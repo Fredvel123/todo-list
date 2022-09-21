@@ -4,8 +4,8 @@ export const DashboardStyles = styled.div`
   /* background: black; */
   display: grid;
   grid-template-columns: 7% 93%;
-  overflow-y: scroll;
-  max-height: 100vh;
+  /* overflow-y: scroll; */
+  /* max-height: 100vh; */
   @media screen and (max-width: 900px) {
     grid-template-columns: 8% 92%;
   }

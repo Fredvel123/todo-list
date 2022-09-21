@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const SideBarStyles = styled.div`
+  position: fixed;
+  width: 7vw;
   background: ${({ color }) => color.third};
   color: ${({ color }) => color.titles};
   transition: 0.3s;

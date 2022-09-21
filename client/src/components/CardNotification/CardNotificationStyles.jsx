@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CardNotificationStyles = styled.div`
   background: ${({ color }) => color.secondary};
-  position: absolute;
+  position: fixed;
   width: 20%;
   height: auto;
   min-height: 20vh;

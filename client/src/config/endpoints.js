@@ -6,3 +6,4 @@ export const userInfo = main + "/api/users/user";
 export const getAllTasks = main + "/api/tasks/all";
 export const updateAvatar = main + "/api/users/avatar";
 export const editpasswd = main + "/api/users/editpasswd";
+export const deleteUser = main + "/api/users/delete";

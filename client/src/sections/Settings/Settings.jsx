@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { editpasswd, updateAvatar } from "../../config/endpoints";
+import { deleteUser, editpasswd, updateAvatar } from "../../config/endpoints";
 import useGetUserInfo from "../../hooks/useGetUserInfo";
 import { SettingsStyles } from "./SettingsStyles";
 import useToken from "../../hooks/useToken";
@@ -9,9 +9,13 @@ import useUpdateInfoInLocalStorage from "../../hooks/useUpdateInfoInLocalStorage
 import { ArrowUpTrayIcon } from "@heroicons/react/24/solid";
 import CardNotification from "../../components/CardNotification/CardNotification";
 import Input from "../../components/Input/Input";
+import { useNavigate } from "react-router-dom";
+import useTheme from "../../hooks/useTheme";
 
 function Settings() {
-  const { token } = useToken();
+  const { token, setTokenHook } = useToken();
+  const { colors, fonts } = useTheme();
+  const navigate = useNavigate();
   const updateUserInfo = useUpdateInfoInLocalStorage();
   const user = useGetUserInfo();
   const [file, setFile] = useState({
@@ -56,6 +60,7 @@ function Settings() {
       })
       .then((res) => {
         setFile({ ...file, response: res.data, status: false });
+        console.log(res.data);
         setCard({
           message: res.data.message,
           status: true,
@@ -64,6 +69,7 @@ function Settings() {
         updateUserInfo();
       })
       .catch((res) => {
+        console.log(res.data);
         setFile({ response: res.data.message, status: false });
       });
   };
@@ -94,13 +100,38 @@ function Settings() {
     sendNewPassword();
   };
 
+  const removeUser = async () => {
+    try {
+      await fetch(deleteUser, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          "access-token": token.token,
+        },
+        body: JSON.stringify({ password: password.value }),
+      });
+      setTokenHook({ auth: false, token: "", user: {} });
+      navigate("/auth/signup");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const askToRemoveAccount = () => {
+    setCard({
+      status: true,
+      message: "are you sure you want to delete your account?",
+      callback: removeUser,
+    });
+  };
+
   return (
-    <SettingsStyles>
+    <SettingsStyles color={colors} font={fonts}>
       <h2>Settings Account</h2>
       {(user.data !== null) & !user.err ? (
         <div className="profile">
           <img src={user.data.avatar} className="profile__img" alt="avatar" />
-          <h2>{user.data.full_name}</h2>
+          <p>{user.data.full_name}</p>
           <div className="profile__input">
             <label htmlFor="input">
               <ArrowUpTrayIcon className="profile__icon" />
@@ -149,20 +180,25 @@ function Settings() {
             state={repeatePassword}
             setState={setRepeatePassword}
           />
-          <button>send</button>
+          <button className="settings__button">Update Password</button>
         </form>
       </div>
 
       <div className="delete-user">
         <h2>delete user</h2>
+        <Input
+          title="Delete User"
+          type="password"
+          placeh="Enter your password to delete the user"
+          state={password}
+          setState={setPassword}
+        />
+        <button className="settings__button" onClick={askToRemoveAccount}>
+          Remove User
+        </button>
       </div>
 
-      <CardNotification
-        state={card}
-        setState={setCard}
-        desc="you have updated your avatar"
-        btn="ok"
-      />
+      <CardNotification state={card} setState={setCard} btn="ok" />
     </SettingsStyles>
   );
 }
