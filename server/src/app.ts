@@ -7,12 +7,13 @@ const app: Application = express();
 // middlewares
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(
-  cors({
-    origin: "http://192.168.0.8:3000",
-    optionsSuccessStatus: 200,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://192.168.0.8:3000",
+//     optionsSuccessStatus: 200,
+//   })
+// );
+app.use(cors()); // allows any device with no rectrictions, not recommended
 
 // settings
 app.set("port", process.env.PORT || 8000);
