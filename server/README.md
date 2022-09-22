@@ -66,6 +66,15 @@ headers: {
 }
 ```
 
+- url/api/users/delete DELETE
+
+```js
+headers: {
+  "access-token": "token string",
+  "Method": "DELETE",
+}
+```
+
 TASKS:
 
 - url/api/tasks/all

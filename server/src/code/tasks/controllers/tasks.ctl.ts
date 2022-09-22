@@ -15,7 +15,7 @@ export const getAllTasks = async (req: Request, res: Response) => {
 };
 
 export const createNewTask = async (req: Request | any, res: Response) => {
-  const { title, description, date } = req.body;
+  const { title, description } = req.body;
   const id = req.id;
 
   try {
@@ -24,9 +24,8 @@ export const createNewTask = async (req: Request | any, res: Response) => {
       description,
       author: id,
       create_at: new Date(),
-      finished_at: date,
     });
-    res.json({ message: "task create successfully", data: taskCreated });
+    res.json({ message: "Your task was created", data: taskCreated });
   } catch (err) {
     res.send(err);
   }

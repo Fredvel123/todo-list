@@ -123,12 +123,28 @@ export const registerUsers = async (req: Request, res: Response) => {
     return;
   }
 
+  if (!user.email_confirmed) {
+    res.json({
+      auth: false,
+      message: "Your email is not confirmed, it should be in your email",
+    });
+    return;
+  }
+
   const passwordMatch = await bcrypt.compare(password, user.password);
   if (!passwordMatch) {
     res.json({ auth: false, message: "Your password is not correct" });
     return;
   }
-  res.json({ auth: true, token: jwtGiveToken(user.id_user) });
+  res.json({
+    auth: true,
+    token: jwtGiveToken(user.id_user),
+    user: {
+      full_name: user.full_name,
+      created_at: user.create_at,
+      avatar: user.avatar,
+    },
+  });
 };
 
 // confirm email
@@ -141,7 +157,7 @@ export const confirEmail = async (req: Request, res: Response) => {
   }
   emailConfirmed.email_confirmed = true;
   await emailConfirmed.save();
-  res.send(emailConfirmed);
+  res.redirect("https://todo-app-fv.netlify.app/");
 };
 
 // lost password

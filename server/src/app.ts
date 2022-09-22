@@ -12,7 +12,6 @@ app.use(
     origin: "http://192.168.0.8:3000",
     optionsSuccessStatus: 200,
   })
-  // cors()
 );
 
 // settings

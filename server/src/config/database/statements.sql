@@ -18,6 +18,6 @@ CREATE TABLE IF NOT EXISTS tasks (
   description TEXT,
   status BOOLEAN DEFAULT false,
   create_at TIMESTAMP,
-  finished_at TIMESTAMP
 );
 ALTER TABLE tasks ADD author INT;
+ALTER TABLE tasks DROP finished_at;

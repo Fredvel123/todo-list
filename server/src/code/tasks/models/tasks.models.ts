@@ -24,9 +24,6 @@ const tasksModels = sequelize.define(
     author: {
       type: DataTypes.INTEGER,
     },
-    finished_at: {
-      type: DataTypes.DATE,
-    },
   },
   { timestamps: false }
 );

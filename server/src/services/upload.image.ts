@@ -5,7 +5,6 @@ import {
   api_key,
   api_secret,
 } from "../config/variablesEnviroment/dotenv";
-import fs from "fs-extra";
 cloudinary.config({
   secure: true,
   api_key,
@@ -41,6 +40,7 @@ export default async function uploadImages(
       img_id: image.public_id,
     };
   } catch (err) {
+    console.warn(err);
     return { response: false, img_id: "", img_url: "" };
   }
 }
