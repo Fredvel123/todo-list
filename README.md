@@ -23,6 +23,6 @@ But If it doesen't work you can install the project manually.
 ## Deploy
 
 - Client - frontend was deployed in Netlify https://www.netlify.com/
-- Server Backend was deployed in Heroku https://heroku.com/
-- Database was deployed in Clever Cloud platform https://heroku.com/
-- Images was uploaded to CLoudinary cloud https://cloudinary.com/
+- Server Backend was deployed in Heroku https://railway.app
+- Database was deployed in Clever Cloud platform https://www.clever-cloud.com/
+- Images was uploaded to Cloudinary cloud https://cloudinary.com/
