@@ -5,6 +5,7 @@ export const SettingsStyles = styled.div`
     font-family: ${({ font }) => font.title};
   }
   .settings__button {
+    cursor: pointer;
     background: ${({ color }) => color.button};
     border: none;
     border-radius: 5px;

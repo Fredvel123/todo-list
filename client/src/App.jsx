@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "./redux/slices/token";
 import { setTheme } from "./redux/slices/theme";
+import { setTasks } from "./redux/slices/tasks";
+
 // pages
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Main from "./pages/Main/Main";
@@ -16,10 +18,13 @@ import useToken from "./hooks/useToken";
 import AllTasks from "./sections/AllTasks/AllTasks";
 import CreateTasks from "./sections/CreateTasks/CreateTasks";
 import Settings from "./sections/Settings/Settings";
+import useTasks from "./hooks/useTasks";
+import ActiveTasks from "./sections/ActiveTasks/ActiveTasks";
 
 function App() {
   const theme = useSelector((state) => state.theme.value);
-  // const token = uZseSelector((state) => state.token.value);
+  // const tasks = useSelector((state) => state.tasks.value);
+  const { tasks } = useTasks();
   const { token } = useToken();
   const dispatch = useDispatch();
 
@@ -35,8 +40,8 @@ function App() {
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
-  // storing the token in local starage
 
+  // storing the token in local starage
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("token"));
     if (data) {
@@ -48,6 +53,19 @@ function App() {
   useEffect(() => {
     localStorage.setItem("token", JSON.stringify(token));
   }, [token]);
+
+  // storing the tasks in local starage
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("tasks"));
+    if (data) {
+      dispatch(setTasks(data));
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <BrowserRouter>
@@ -63,6 +81,7 @@ function App() {
           <Route path="create" element={<CreateTasks />} />
           <Route path="all" element={<AllTasks />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="active" element={<ActiveTasks />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
 

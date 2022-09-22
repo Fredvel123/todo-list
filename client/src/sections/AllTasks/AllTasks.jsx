@@ -1,21 +1,21 @@
 import { useEffect } from "react";
-import { getAllTasks } from "../../config/endpoints";
-import useFetch from "../../hooks/useFetch";
 import SpinnerLoading from "../../components/SpinnerLoading/SpinnerLoading";
+import useTasks from "../../hooks/useTasks";
 
 export default function AllTasks() {
-  const { response, fetchApi } = useFetch();
-
+  const { updateTasks, tasks } = useTasks();
   useEffect(() => {
-    fetchApi(getAllTasks);
+    if (tasks.length < 1) {
+      updateTasks();
+    }
     // eslint-disable-next-line
   }, []);
 
   return (
     <div>
       All Tasks
-      {response !== null ? (
-        response.map((item) => <h2>{item.description}</h2>)
+      {tasks.length > 0 ? (
+        tasks.map((item) => <h2>{item.description}</h2>)
       ) : (
         <SpinnerLoading />
       )}

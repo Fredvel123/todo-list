@@ -102,7 +102,7 @@ function Settings() {
 
   const removeUser = async () => {
     try {
-      await fetch(deleteUser, {
+      const post = await fetch(deleteUser, {
         method: "DELETE",
         headers: {
           "Content-type": "application/json",
@@ -110,6 +110,11 @@ function Settings() {
         },
         body: JSON.stringify({ password: password.value }),
       });
+      const res = await post.json();
+      if (!res.removed) {
+        setCard({ ...card, message: res.message, status: true });
+        return;
+      }
       setTokenHook({ auth: false, token: "", user: {} });
       navigate("/auth/signup");
     } catch (err) {
