@@ -4,7 +4,9 @@ CREATE TABLE IF NOT EXISTS users (
   email TEXT,
   password TEXT,
   email_key VARCHAR(12),
-  create_at TIMESTAMP
+  create_at TIMESTAMP,
+  avatar TEXT, 
+  cloud_id TEXT
 );
 
 ALTER TABLE users ADD email_confirmed BOOLEAN DEFAULT false; 
@@ -18,6 +20,7 @@ CREATE TABLE IF NOT EXISTS tasks (
   description TEXT,
   status BOOLEAN DEFAULT false,
   create_at TIMESTAMP,
+  author INT
 );
 ALTER TABLE tasks ADD author INT;
 ALTER TABLE tasks DROP finished_at;

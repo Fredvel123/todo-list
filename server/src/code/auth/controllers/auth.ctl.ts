@@ -45,7 +45,7 @@ export const createNewUser = async (req: Request, res: Response) => {
   }
   const passwordHashed = await bcrypt.hash(password, 10);
   const email_code = randomString(12);
-  const html = `<h2>Welcome ${full_name} </h2> <p>hope you enjoy the app and use when you need it</p> <br /><h3>In case you never has visit our app, please ignore this email and do not click the link</h3><p>To confirm your email just</p><a href="http://192.168.0.8:8000/api/auth/email/${email_code}" target="__blank">click here</a>`;
+  const html = `<h2>Welcome ${full_name} </h2> <p>hope you enjoy the app and use when you need it</p> <br /><h3>In case you never has visit our app, please ignore this email and do not click the link</h3><p>To confirm your email just</p><a href="https://todoapp-fredd.up.railway.app/${email_code}" target="__blank">click here</a>`;
   const emailSent = await emailer(email, "Welcome to TodoApp", html);
   if (!emailSent) {
     res.json({
@@ -157,7 +157,7 @@ export const confirEmail = async (req: Request, res: Response) => {
   }
   emailConfirmed.email_confirmed = true;
   await emailConfirmed.save();
-  res.redirect("https://todo-app-fv.netlify.app/");
+  res.redirect("https://todo-fredvel.up.railway.app/");
 };
 
 // lost password
