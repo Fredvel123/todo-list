@@ -1,5 +1,5 @@
-const main = "http://192.168.0.8:8000"; // development
-// const main = "http://www.example.com"; // producion
+// const main = "http://192.168.0.8:8000"; // development
+const main = "https://todoapp-fredd.up.railway.app"; // production
 
 export const signup = main + "/api/auth/signup";
 export const signin = main + "/api/auth/signin";
