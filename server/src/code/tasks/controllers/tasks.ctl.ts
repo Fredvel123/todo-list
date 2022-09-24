@@ -44,10 +44,7 @@ export const editTaskByTaskId = async (req: Request | any, res: Response) => {
   const { id_task } = req.params;
   const { title, description, status } = req.body;
   try {
-    const taskEdited = await Tasks.update(
-      { title, description, status, author: req.id },
-      { where: { id_task } }
-    );
+    await Tasks.update({ title, description, status }, { where: { id_task } });
     res.json({ message: "task edited successfully" });
   } catch (err) {
     res.send(err);
