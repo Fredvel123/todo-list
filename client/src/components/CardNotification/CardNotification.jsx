@@ -2,7 +2,7 @@ import { CardNotificationStyles } from "./CardNotificationStyles";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import useTheme from "../../hooks/useTheme";
 
-export default function CardNotification({ desc, btn, state, setState }) {
+export default function CardNotification({ btn, state, setState }) {
   const { colors, fonts } = useTheme();
   const closeCard = () => {
     setState({ ...state, status: false });

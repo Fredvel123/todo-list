@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CardTask from "../../components/CardTask/CardTask";
 import useTasks from "../../hooks/useTasks";
 
 export default function ActiveTasks() {
@@ -11,14 +12,12 @@ export default function ActiveTasks() {
     };
     getAllActiveTasks();
     // eslint-disable-next-line
-  }, []);
+  }, [tasks]);
 
   return (
     <div>
-      ActiveTasksStyles
-      <button onClick={() => console.log(activeTasks)}>
-        get tasks actives
-      </button>
+      <h2>Active Tasks</h2>
+      <CardTask items={activeTasks} />
     </div>
   );
 }

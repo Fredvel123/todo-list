@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import SpinnerLoading from "../../components/SpinnerLoading/SpinnerLoading";
+import CardTask from "../../components/CardTask/CardTask";
 import useTasks from "../../hooks/useTasks";
 
 export default function AllTasks() {
@@ -13,12 +13,8 @@ export default function AllTasks() {
 
   return (
     <div>
-      All Tasks
-      {tasks.length > 0 ? (
-        tasks.map((item) => <h2>{item.description}</h2>)
-      ) : (
-        <SpinnerLoading />
-      )}
+      <h2>All Tasks</h2>
+      <CardTask items={tasks} />
     </div>
   );
 }

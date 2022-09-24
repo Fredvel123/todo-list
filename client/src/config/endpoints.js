@@ -11,3 +11,5 @@ export const deleteUser = main + "/api/users/delete";
 export const createTasks = main + "/api/tasks/create";
 export const getAllTasks = main + "/api/tasks/all";
 export const getTasksByUser = main + "/api/tasks/user";
+export const removeTaskByid = main + "/api/tasks/remove";
+export const editUserByid = main + "/api/tasks/edit";

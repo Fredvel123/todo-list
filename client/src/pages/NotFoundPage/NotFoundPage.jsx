@@ -1,3 +1,13 @@
+import image from "../../assets/404.svg";
+import { NotFoundPageStyles } from "./NotFoundStyles";
+import { useNavigate } from "react-router-dom";
+
 export default function NotFoundPage() {
-  return <div>NotFoundPage 404</div>;
+  const navigate = useNavigate();
+  return (
+    <NotFoundPageStyles>
+      <img src={image} alt="" />
+      <button onClick={() => navigate("/")}>go to home</button>
+    </NotFoundPageStyles>
+  );
 }

@@ -20,6 +20,7 @@ import CreateTasks from "./sections/CreateTasks/CreateTasks";
 import Settings from "./sections/Settings/Settings";
 import useTasks from "./hooks/useTasks";
 import ActiveTasks from "./sections/ActiveTasks/ActiveTasks";
+import CompleteTasks from "./sections/DoneTasks/CompleteTasks";
 
 function App() {
   const theme = useSelector((state) => state.theme.value);
@@ -82,6 +83,7 @@ function App() {
           <Route path="all" element={<AllTasks />} />
           <Route path="settings" element={<Settings />} />
           <Route path="active" element={<ActiveTasks />} />
+          <Route path="complete" element={<CompleteTasks />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
 

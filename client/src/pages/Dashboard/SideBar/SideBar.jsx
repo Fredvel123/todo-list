@@ -32,7 +32,11 @@ export default function SideBar({ openCard }) {
           className="menu__icon"
         />
         <div className="menu__cart">
-          <ClipboardIcon className="menu__icon" />
+          <ClipboardIcon
+            className="menu__icon"
+            onClick={() => navigate("active")}
+          />
+
           <span>Active Tasks</span>
         </div>
 
@@ -45,7 +49,10 @@ export default function SideBar({ openCard }) {
         </div>
 
         <div className="menu__cart">
-          <ClipboardDocumentCheckIcon className="menu__icon" />
+          <ClipboardDocumentCheckIcon
+            className="menu__icon"
+            onClick={() => navigate("complete")}
+          />
           <span>Done tasks</span>
         </div>
 

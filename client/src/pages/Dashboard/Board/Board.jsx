@@ -14,7 +14,6 @@ function Board() {
           onClick={() => setSidebar(!sidebar)}
           className="head__menu"
         />
-        <input type="text" placeholder="search" />
       </div>
       <div className="content">
         <Outlet />
