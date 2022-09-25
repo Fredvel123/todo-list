@@ -3,6 +3,8 @@ import morgan from "morgan";
 import cors from "cors";
 import "dotenv/config";
 const app: Application = express();
+import fs from "fs-extra";
+import path from "path";
 
 // middlewares
 app.use(express.json());
@@ -37,5 +39,12 @@ app.use("/api/auth", authRouter);
 // router  - tasks
 import tasksRouter from "./code/tasks/routers/tasks.routers";
 app.use("/api/tasks", tasksRouter);
+
+// create assets file if not exists
+fs.ensureDir(path.join(__dirname, "./assets"), (err) => {
+  if (err) {
+    console.log(err);
+  }
+});
 
 export default app;
