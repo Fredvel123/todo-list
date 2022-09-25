@@ -1,3 +1,9 @@
+## App Online
+
+```shell
+https://todo-fredvel.up.railway.app/
+```
+
 ## Start project:
 
 To Run the project just clone the project
@@ -22,7 +28,7 @@ But If it doesen't work you can install the project manually.
 
 ## Deploy
 
-- Client - frontend was deployed in Netlify https://www.netlify.com/
+- Client - frontend was deployed in Netlify https://railway.app
 - Server Backend was deployed in Heroku https://railway.app
 - Database was deployed in Clever Cloud platform https://www.clever-cloud.com/
 - Images was uploaded to Cloudinary cloud https://cloudinary.com/

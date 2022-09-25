@@ -16,3 +16,6 @@ settings: https://search.muz.li/YjYwOTE0MTQx
 
 - styled-components
 - react redux (redux/toolkit)
+- react-router-dom
+- @heroicons/react
+- @reduxjs/toolkit

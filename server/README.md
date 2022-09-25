@@ -134,7 +134,10 @@ headers: {
 - Dotenv
 - JWT
 - Bcryptjs
-- sequelize
+- sequelize pg pg-hstore
 - morgan
 - cloudinary
 - Multer
+- fs-extra
+- nodemailer
+- cors
