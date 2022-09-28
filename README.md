@@ -4,6 +4,50 @@
 https://todo-fredvel.up.railway.app/
 ```
 
+## Project Views
+
+Home page
+
+![home](./readme-assets/home.png)
+
+Sign In
+
+![Alt text](./readme-assets/signin.png "Title")
+
+Sign Up
+
+![signup](./readme-assets/signup.png "Sign up")
+
+Dashboard - Settings account
+
+![signup](./readme-assets/settings.png "dasboard")
+
+Create Tasks
+
+![create](./readme-assets/create-task.png "create")
+
+All Tasks
+
+![all tasks](./readme-assets/all-tasks.png "all tasks")
+
+Log out
+
+![log out](./readme-assets/logout.png "logout")
+
+Light Theme
+
+![light theme](./readme-assets/lighttheme.png "lighttheme")
+
+Responsive/phone views
+
+![responsive](./readme-assets/2.jpg "responsive")
+
+![responsive](./readme-assets/3.jpg "responsive")
+
+![responsive](./readme-assets/4.jpg "responsive")
+
+![responsive](./readme-assets/5.jpg "responsive")
+
 ## Start project:
 
 To Run the project just clone the project
