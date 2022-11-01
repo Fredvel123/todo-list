@@ -11,7 +11,7 @@ read -p 'What is your favorite npm manager?(just type yarn or npm):' npm_manager
 
 if [ $npm_manager = 'yarn' ] || [ $npm_manager = 'npm' ] 
 then
-cd ../server
+cd ./server
 echo "Installing backend packages"
 $npm_manager install
 
