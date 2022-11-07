@@ -188,6 +188,6 @@ export const lostPassword = async (req: Request, res: Response) => {
   user.password = passwordHashed;
   await user.save();
   res.json({
-    message: `${user.full_name}, we sent you a email with your new password, please check it out`,
+    message: `${user.full_name}, we sent you an email with your new password, please check it out`,
   });
 };
