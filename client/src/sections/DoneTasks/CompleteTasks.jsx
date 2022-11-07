@@ -17,7 +17,7 @@ export default function CompleteTasks() {
 
   return (
     <div>
-      <h2>Complete tasks</h2>
+      <h2>Completed tasks</h2>
       <CardTask items={completeTasks} />
     </div>
   );

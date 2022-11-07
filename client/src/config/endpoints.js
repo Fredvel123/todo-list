@@ -13,3 +13,5 @@ export const getAllTasks = main + "/api/tasks/all";
 export const getTasksByUser = main + "/api/tasks/user";
 export const removeTaskByid = main + "/api/tasks/remove";
 export const editUserByid = main + "/api/tasks/edit";
+
+export const resetPassword = main + "/api/auth/lostpsswd";

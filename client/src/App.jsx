@@ -21,6 +21,7 @@ import Settings from "./sections/Settings/Settings";
 import useTasks from "./hooks/useTasks";
 import ActiveTasks from "./sections/ActiveTasks/ActiveTasks";
 import CompleteTasks from "./sections/DoneTasks/CompleteTasks";
+import ForgottenPassword from "./pages/ForgottenPassword/ForgottenPassword";
 
 function App() {
   const theme = useSelector((state) => state.theme.value);
@@ -92,6 +93,8 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn />} />
         </Route>
+        {/* forgotten password  */}
+        <Route path="password" element={<ForgottenPassword />} />
 
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>

@@ -76,6 +76,10 @@ export default function SignIn() {
         </button>
       </form>
 
+      <p className="redirect" onClick={() => navigate("/password")}>
+        Did you forget your password?
+      </p>
+
       {response.message ? <p>{response.message}</p> : null}
       {loading === false ? <SpinnerLoading /> : null}
     </SignInStyles>

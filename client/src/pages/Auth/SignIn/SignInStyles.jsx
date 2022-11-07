@@ -14,4 +14,9 @@ export const SignInStyles = styled.div`
   .form__message {
     font-family: ${({ font }) => font.text};
   }
+  .redirect {
+    cursor: pointer;
+    margin-top: 5vh;
+    font-size: 13px;
+  }
 `;
