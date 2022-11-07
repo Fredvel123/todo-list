@@ -1,5 +1,29 @@
 # Todo App Frontend - ReactJs
 
+## If you want to run this project on your local host:
+
+You have to run the next command
+
+```shell
+# yarn
+yarn dev
+
+# npm
+npm run dev
+```
+
+## Do not forget change the main url to work on your own machine:
+
+Please comment the "production" line and uncomment the "development" line.
+Also do not forget to set up your backend
+
+### Source: ./src/config/endpoints.js
+
+```js
+const main = "http://192.168.0.9:8000"; // development
+// const main = "https://todoapp-fredd.up.railway.app"; // production
+```
+
 ## Main Design
 
 Welcome page link: https://dribbble.com/shots/16322776-Website-for-Digital-Agency/attachments/8253411?mode=media
