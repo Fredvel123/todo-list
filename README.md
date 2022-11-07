@@ -1,7 +1,7 @@
 ## App Online
 
 ```shell
-https://todo-fredvel.up.railway.app/
+https://todo-list-smoky-six.vercel.app/
 ```
 
 ## Project Views
@@ -72,7 +72,7 @@ But If it doesen't work you can install the project manually.
 
 ## Deploy
 
-- Client - frontend was deployed in Netlify https://railway.app
-- Server Backend was deployed in Heroku https://railway.app
+- Client - frontend was deployed in Vercel https://vercel.com/
+- Server Backend was deployed in Railway https://railway.app
 - Database was deployed in Clever Cloud platform https://www.clever-cloud.com/
 - Images was uploaded to Cloudinary cloud https://cloudinary.com/
